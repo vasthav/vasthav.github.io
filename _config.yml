@@ -1,0 +1,68 @@
+#
+###################################
+# Site wide configuration
+####################################
+#
+title: Blog | K C Sreevasthavan 
+email:
+description: This blog is maintained by K C Sreevasthavan. You can find interesing 
+  tutorials, free resources(themes, tips, designs), articles, music etc here.
+url: # the base hostname & protocol for your site
+
+
+#
+###################################
+# Jekyll configuration
+####################################
+#
+timezone:          Asia/India
+markdown:          kramdown
+highlighter:       rouge
+excerpt_separator: <!--more-->
+permalink:         /articles/:year-:month/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+#
+###################################
+# Site Owner configuration
+####################################
+#
+owner:
+  name: K C Sreevasthavan
+  avatar: #leonids-logo.png
+  job: Software engineer, traveller, entreprenuer, freelancer, photographer
+  bio: "I am a btech Computer Science student from National Institute of Technology, Calicut, India. I am basically from Thrissur, Kerala. I was born brought up in Nasik, Maharashtra. I am hardcore fan of LINKIN PARK. I am also passionate about music (i have even composed a couple of songs), singing (though i am a bad singer), photography, other than coding and programming. I am a Foss (free and open source software) enthusiast and also recommend Foss to others."
+  email: sreevasthavan@gmail.com
+  disqus-shortname:
+  twitter: me_vasthav
+  facebook: sree.vasthavan
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: vasthav
+  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: sreevasthavan
+  xing: #username
+  instagram: vasthav
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+  500px: #username
+  codepen: #username
