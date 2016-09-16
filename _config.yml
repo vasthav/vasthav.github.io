@@ -35,16 +35,16 @@ kramdown:
 #
 owner:
   name: K C Sreevasthavan
-  avatar: #leonids-logo.png
+  avatar: favicon.jpg
   job: Software engineer, traveller, entreprenuer, freelancer, photographer
-  bio: "I am a btech Computer Science student from National Institute of Technology, Calicut, India. I am basically from Thrissur, Kerala. I was born brought up in Nasik, Maharashtra. I am hardcore fan of LINKIN PARK. I am also passionate about music (i have even composed a couple of songs), singing (though i am a bad singer), photography, other than coding and programming. I am a Foss (free and open source software) enthusiast and also recommend Foss to others."
+  bio: "Graduated from National Institute of Technology Calicut, Kerala. Loves travelling, photography, programming, foss, webdevelopment, music, art, anything new and creative"
   email: sreevasthavan@gmail.com
-  disqus-shortname:
+  disqus-shortname: vasthav-github-io 
   twitter: me_vasthav
   facebook: sree.vasthavan
   google:
     plus: #username
-    analytics:
+    analytics: UA-84213835-1
     verify:
     ad-client:
     ad-slot:
@@ -61,7 +61,7 @@ owner:
   steam: #username
   dribbble: #username
   youtube: #username
-  soundcloud: #username
+  soundcloud: david_vasthav
   weibo: #username
   flickr: #username
   500px: #username
