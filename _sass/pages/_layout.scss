@@ -1,18 +1,19 @@
 /* LAYOUT CSS */
 .cover {
   background-color: $background-color;
-  position: fixed;
+  position: relative;
   text-align: center;
   width: 100%;
-  min-height: 400px;
-  // padding: 30px 15px 20px;
+  // min-height: 400px;
+  padding: 30px 15px 20px;
   z-index: 1;
   @include media-query($small-screen) {
     background-position: center;
     // padding: 30px;
+    width:100%;
   }
   @include media-query($medium-screen) {
-    height: 100vh;
+    // height: 100vh;
     position: initial;
     width: 100%;
   }
