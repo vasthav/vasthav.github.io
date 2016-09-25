@@ -2,20 +2,25 @@
 .post-listing {
   background-color: $white;
   position: absolute;
-  top: 400px;
+  // top: 10%;
   z-index: 233;
   width: 100%;
-  padding: 20px 20px 0;
+  //padding: 20px 20px 0;
+  padding-left: 4%;
+  padding-right: 4%;
   -webkit-transform: translate3d(0,0,1px);
   transform: translate3d(0,0,1px);
   @include media-query($small-screen) {
-    padding: 50px 30px 0;
+    // padding: 50px 30px 0;
+    padding-left: 14%;
+    padding-right: 14%;
+    // top:10%;
   }
   @include media-query($medium-screen) {
     height: 100vh;
-    overflow-y: scroll;
+    //overflow-y: scroll;
     position: initial;
-    top: 0;
+    top: 10%;
   }
 }
 
@@ -30,7 +35,7 @@
 
 // Post Section
 section.post {
-	margin-bottom: 80px;
+	margin-bottom: 40px;
 }
 
 // Back home button
@@ -46,12 +51,14 @@ section.post {
 
 // Post title
 .post-title {
-
+  // color: #03a9f4;
+  color: #0097a7;
+  font-size: 20px;
 }
 
 .post-title-link {
 	color: $primary;
-	font-size: 14px;
+	font-size: 13px;
 	margin-left: 10px;
 	&:hover,
 	&:focus {
@@ -88,7 +95,7 @@ a.read-more {
 // Post content
 
 #post {
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   .post-header {
     margin: 0 auto 50px;
   }

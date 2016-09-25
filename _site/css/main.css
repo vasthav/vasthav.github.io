@@ -1039,7 +1039,7 @@ html {
   color: rgba(0, 0, 0, 0.87);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-size: 15px; }
+  font-size: 18px; }
 
 blockquote {
   display: block;
@@ -1110,7 +1110,8 @@ small,
 p {
   margin: 1.2em 0;
   word-spacing: 0.05em;
-  line-height: 1.6em; }
+  line-height: 1.6em;
+  font-size: 15px; }
 
 /* Buttons
    ========================================================================== */
@@ -1192,7 +1193,7 @@ pre, code {
   color: #525252;
   font-size: 0.9em;
   background-color: #f8f8f8;
-  font-size: 12px; }
+  font-size: 15px; }
 
 code {
   color: #e96900;
@@ -1447,12 +1448,10 @@ pre code {
   text-align: center;
   width: 100%;
   min-height: 400px;
-  padding: 30px 15px 20px;
   z-index: 1; }
   @media only screen and (min-width: 600px) {
     .cover {
-      background-position: center;
-      padding: 30px; } }
+      background-position: center; } }
   @media only screen and (min-width: 992px) {
     .cover {
       height: 100vh;
@@ -1593,21 +1592,21 @@ ul.tag-cloud {
 .post-listing {
   background-color: #fff;
   position: absolute;
-  top: 400px;
   z-index: 233;
   width: 100%;
-  padding: 20px 20px 0;
+  padding-left: 4%;
+  padding-right: 4%;
   -webkit-transform: translate3d(0, 0, 1px);
   transform: translate3d(0, 0, 1px); }
   @media only screen and (min-width: 600px) {
     .post-listing {
-      padding: 50px 30px 0; } }
+      padding-left: 14%;
+      padding-right: 14%; } }
   @media only screen and (min-width: 992px) {
     .post-listing {
       height: 100vh;
-      overflow-y: scroll;
       position: initial;
-      top: 0; } }
+      top: 10%; } }
 
 .image-credit {
   float: right;
@@ -1618,7 +1617,7 @@ ul.tag-cloud {
   padding-right: 20px; }
 
 section.post {
-  margin-bottom: 80px; }
+  margin-bottom: 40px; }
 
 .back-home a {
   font-size: 13px;
@@ -1628,9 +1627,13 @@ section.post {
   border-radius: 0.4em;
   padding: 0.5em 1em; }
 
+.post-title {
+  color: #0097a7;
+  font-size: 20px; }
+
 .post-title-link {
   color: #42b983;
-  font-size: 14px;
+  font-size: 13px;
   margin-left: 10px; }
   .post-title-link:hover, .post-title-link:focus {
     color: #75cea5; }
@@ -1653,7 +1656,7 @@ a.read-more {
   padding: 5px 8px; }
 
 #post {
-  padding-bottom: 50px; }
+  padding-bottom: 30px; }
   #post .post-header {
     margin: 0 auto 50px; }
 

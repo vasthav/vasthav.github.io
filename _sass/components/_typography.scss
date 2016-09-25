@@ -13,7 +13,8 @@ html {
   color: $text-color;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-size: $font-size-base;
+  // font-size: $font-size-base;
+  font-size: 18px;
 }
 
 //
@@ -95,4 +96,5 @@ p {
   margin: 1.2em 0;
   word-spacing: 0.05em;
   line-height: 1.6em;
+  font-size:15px;
 }
