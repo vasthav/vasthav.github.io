@@ -11,8 +11,11 @@
   <!-- bootstrap ends here -->
 
   <!-- CSS files -->
-  <link rel="stylesheet" href="{{ site.url }}/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="{{ site.url }}/css/font-awesome.min.css"> -->
   <!-- <link rel="stylesheet" href="{{ site.url }}/css/main.css"> -->
+  <style type="text/css">
+    {% include font-awesome.min.css %}
+  </style>
   <style type="text/css">
    {% capture include_to_sassify %}
    {% include main.scss %}
