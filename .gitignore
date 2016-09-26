@@ -1,4 +1,8 @@
 ### Jekyll ###
-_site/
-.sass-cache/
 .jekyll-metadata
+_site
+_site/*
+.sass-cache
+_drafts
+_drafts/*
+.ruby-version

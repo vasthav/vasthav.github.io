@@ -66,3 +66,11 @@ owner:
   flickr: #username
   500px: #username
   codepen: #username
+
+#########################
+# minify HTML
+#########################
+compress_html:
+  clippings: all
+  comments:  ["<!-- ", " -->"]
+  endings:   all
