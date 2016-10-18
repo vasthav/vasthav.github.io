@@ -63,6 +63,7 @@ You can download Ubuntu 16.10 .iso for 32-bit and 64-bit hardware using the link
 ##### Upgrading from Ubuntu 16.04 LTS
 
 **To upgrade on a desktop system:**
+
 ```   
 Open the "Software & Updates" Setting in System Settings.
 Select the 3rd Tab called "Updates".
