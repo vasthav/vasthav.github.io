@@ -64,13 +64,12 @@ You can download Ubuntu 16.10 .iso for 32-bit and 64-bit hardware using the link
 
 **To upgrade on a desktop system:**
 
-```   
-Open the "Software & Updates" Setting in System Settings.
-Select the 3rd Tab called "Updates".
-Set the "Notify me of a new Ubuntu version" drop down menu to "For any new version".
-Press Alt+F2 and type in "update-manager -d" (without the quotes) into the command box.
-Update Manager should open up and tell you: New distribution release '16.10' is available.
-Click Upgrade and follow the on-screen instructions. 
-```
+1. Open the "Software & Updates" Setting in System Settings.
+2. Select the 3rd Tab called "Updates".
+3. Set the "Notify me of a new Ubuntu version" drop down menu to "For any new version".
+4. Press Alt+F2 and type in "update-manager -d" (without the quotes) into the command box.
+5. Update Manager should open up and tell you: New distribution release '16.10' is available.
+6. Click Upgrade and follow the on-screen instructions. 
+
 
 

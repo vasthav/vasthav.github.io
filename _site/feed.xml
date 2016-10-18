@@ -5,8 +5,8 @@
     <description>This blog is maintained by K C Sreevasthavan. You can find interesing tutorials, free resources(themes, tips, designs), articles, music etc here.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 18 Oct 2016 17:49:29 +0000</pubDate>
-    <lastBuildDate>Tue, 18 Oct 2016 17:49:29 +0000</lastBuildDate>
+    <pubDate>Tue, 18 Oct 2016 18:10:08 +0000</pubDate>
+    <lastBuildDate>Tue, 18 Oct 2016 18:10:08 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -17,6 +17,7 @@
 &lt;h3 id=&quot;updated-packages&quot;&gt;Updated Packages&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Linux kernel 4.8&lt;/strong&gt;
 Ubuntu 16.10 is based on the Linux release series 4.8. And the new &lt;strong&gt;gpg&lt;/strong&gt; binary is now provided by &lt;strong&gt;gnupg2&lt;/strong&gt;. The Linux kernel 4.8 features numerable improvements to system stability, performance, power efficiency, and file system handling, including:&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;Support for over-clocking AMD graphic cards&lt;/li&gt;
   &lt;li&gt;Initial NVIDIA Pascal support in Nouveau driver&lt;/li&gt;
@@ -27,6 +28,7 @@ Ubuntu 16.10 is based on the Linux release series 4.8. And the new &lt;strong&gt
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;New versions of Apps&lt;/strong&gt;&lt;/p&gt;
+
 &lt;ol&gt;
   &lt;li&gt;Nautilus 3.20&lt;/li&gt;
   &lt;li&gt;Firefox 48 web browser&lt;/li&gt;
@@ -49,6 +51,7 @@ Ubuntu 16.10 is based on the Linux release series 4.8. And the new &lt;strong&gt
 &lt;a href=&quot;http://releases.ubuntu.com/16.10/ubuntu-16.10-desktop-amd64.iso&quot;&gt;&lt;strong&gt;Ubuntu 16.10 .iso for 64-bit&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;You can download ISOs and flashable images from from:&lt;/strong&gt;&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://releases.ubuntu.com/16.10/&quot;&gt;http://releases.ubuntu.com/16.10/&lt;/a&gt;  &lt;strong&gt;&lt;em&gt;(Ubuntu Desktop and Server)&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://cdimage.ubuntu.com/ubuntu/releases/16.10/&quot;&gt;http://cdimage.ubuntu.com/ubuntu/releases/16.10/&lt;/a&gt;  &lt;strong&gt;&lt;em&gt;(Less Popular Ubuntu Images)&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
@@ -66,14 +69,15 @@ Ubuntu 16.10 is based on the Linux release series 4.8. And the new &lt;strong&gt
 &lt;h5 id=&quot;upgrading-from-ubuntu-1604-lts&quot;&gt;Upgrading from Ubuntu 16.04 LTS&lt;/h5&gt;
 
 &lt;p&gt;&lt;strong&gt;To upgrade on a desktop system:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Open the &quot;Software &amp;amp; Updates&quot; Setting in System Settings.
-Select the 3rd Tab called &quot;Updates&quot;.
-Set the &quot;Notify me of a new Ubuntu version&quot; drop down menu to &quot;For any new version&quot;.
-Press Alt+F2 and type in &quot;update-manager -d&quot; (without the quotes) into the command box.
-Update Manager should open up and tell you: New distribution release '16.10' is available.
-Click Upgrade and follow the on-screen instructions. 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open the “Software &amp;amp; Updates” Setting in System Settings.&lt;/li&gt;
+  &lt;li&gt;Select the 3rd Tab called “Updates”.&lt;/li&gt;
+  &lt;li&gt;Set the “Notify me of a new Ubuntu version” drop down menu to “For any new version”.&lt;/li&gt;
+  &lt;li&gt;Press Alt+F2 and type in “update-manager -d” (without the quotes) into the command box.&lt;/li&gt;
+  &lt;li&gt;Update Manager should open up and tell you: New distribution release ‘16.10’ is available.&lt;/li&gt;
+  &lt;li&gt;Click Upgrade and follow the on-screen instructions.&lt;/li&gt;
+&lt;/ol&gt;
 
 </description>
         <pubDate>Thu, 13 Oct 2016 00:00:00 +0000</pubDate>
