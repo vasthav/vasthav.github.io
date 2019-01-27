@@ -25,8 +25,8 @@
 
 // Section
 .section {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
   &.no-pad {
     padding: 0;
@@ -54,9 +54,9 @@
   .col {
     float: left;
     @include box-sizing(border-box);
-    display:block;
-  	vertical-align:top;
-  	width:100%;
+    display: block;
+    vertical-align: top;
+    width: 100%;
 
     $i: 1;
     @while $i <= $num-cols {
@@ -76,9 +76,7 @@
       $i: $i + 1;
     }
 
-
     @include media-query($small-screen) {
-
       $i: 1;
       @while $i <= $num-cols {
         $perc: unquote((100 / ($num-cols / $i)) + "%");
@@ -96,11 +94,9 @@
         }
         $i: $i + 1;
       }
-
     }
 
     @include media-query($medium-screen) {
-
       $i: 1;
       @while $i <= $num-cols {
         $perc: unquote((100 / ($num-cols / $i)) + "%");
@@ -118,8 +114,6 @@
         }
         $i: $i + 1;
       }
-
     }
-
   }
 }

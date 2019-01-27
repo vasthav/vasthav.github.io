@@ -1,6 +1,6 @@
 // Post listing
 .post-listing {
-  background-color: $white;
+  background-color: $background-color;
   position: absolute;
   // top: 10%;
   z-index: 233;
@@ -8,8 +8,8 @@
   //padding: 20px 20px 0;
   padding-left: 4%;
   padding-right: 4%;
-  -webkit-transform: translate3d(0,0,1px);
-  transform: translate3d(0,0,1px);
+  -webkit-transform: translate3d(0, 0, 1px);
+  transform: translate3d(0, 0, 1px);
   @include media-query($small-screen) {
     // padding: 50px 30px 0;
     padding-left: 14%;
@@ -35,7 +35,7 @@
 
 // Post Section
 section.post {
-	margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 // Back home button
@@ -53,35 +53,35 @@ section.post {
 .post-title {
   // color: #03a9f4;
   // color: #0097a7;
-  color : rgb(64, 120, 192);
+  color: rgb(64, 120, 192);
   font-size: 30px;
 }
 
 .post-title-link {
-	color: $primary;
-	font-size: 13px;
-	margin-left: 10px;
-	&:hover,
-	&:focus {
-		color: lighten($primary, 14%);
-	}
+  color: $primary;
+  font-size: 13px;
+  margin-left: 10px;
+  &:hover,
+  &:focus {
+    color: lighten($primary, 14%);
+  }
 }
 
 // Post meta
 .post-meta {
   font-size: 13px;
   font-weight: bold;
-	.post-date {
-		color: $secondary;
-	}
-	.post-author {
-		text-transform: uppercase;
-		color: $warning;
-	}
+  .post-date {
+    color: $secondary;
+  }
+  .post-author {
+    text-transform: uppercase;
+    color: $warning;
+  }
   .post-cat {
-		text-transform: uppercase;
-		color: $warning;
-	}
+    text-transform: uppercase;
+    color: $warning;
+  }
   .read-time {
     color: $primary;
   }

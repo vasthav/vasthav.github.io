@@ -3,17 +3,17 @@
   <channel>
     <title>Blog | K C Sreevasthavan</title>
     <description>This blog is maintained by K C Sreevasthavan. You can find interesing tutorials, free resources(themes, tips, designs), articles, music etc here.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 26 Oct 2016 14:24:27 +0000</pubDate>
-    <lastBuildDate>Wed, 26 Oct 2016 14:24:27 +0000</lastBuildDate>
-    <generator>Jekyll v3.3.0</generator>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 27 Jan 2019 06:31:14 +0000</pubDate>
+    <lastBuildDate>Sun, 27 Jan 2019 06:31:14 +0000</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>FOSSMeet @ NIT_Calicut</title>
         <description>&lt;p&gt;Recently I had gone back to my college for convocation and believe me that place has got something that makes you feel right back at home every time you return back. All the old and tall buildings, trees, Rajpath, the long corridors of mechanical workshop, Aryabhatta, SSL (software systems lab), mens hostels, Main Canteen, Mini Canteen, Micro Canteen, Amul Canteen, Library Coffee shop, NLHC, ELHC, MB (Main Building), DB (Department Building) and list goes on. Though the academic experience differ for most of us but the hostel and campus experience for all the NITCians undoubtedly will be once in a lifetime experiences. I was fortunate to get some amazing seniors, juniors, professors, colleagues and most importantly some really good friends for life. Now let’s get back to the topic.&lt;/p&gt;
 
-&lt;p&gt;During my convocation college visit, I got to meet our juniors once again and during the talks I was glad to hear that the work for next edition of FOSSMeet is in full swing. Yesterday it dawned on me that during my first year, when I saw the posters of FOSSMeet all around the campus, I went to CCC (Central Computing Center) to get more info about the event. To my surprise there were many blogs and articles describing the event from the participants and our seniors who conducted the previous versions of FOSSMeet. So I thought why not share my experience as a participant and as a organizer in different versions of FOSSMeet. And as one of my professor used to say “Documentation is the key”.&lt;/p&gt;
+&lt;p&gt;During my convocation college visit, I got to meet our juniors once again and during the talks I was glad to hear that the work for next edition of FOSSMeet is in full swing. Yesterday it dawned on me that during my first year, when I saw the posters of FOSSMeet all around the campus, I went to CCC (Central Computing Center) to get more info about the event. To my surprise there were many blogs and articles describing the event from the participants and our seniors who conducted the previous versions of FOSSMeet. So I thought why not share my experience as a participant and as an organizer in different versions of FOSSMeet. And as one of my professor used to say “Documentation is the key”.&lt;/p&gt;
 
 &lt;p&gt;In a way I can say that my first introduction to FOSSMeet was from different articles and blogs I found online from my seniors which you can find it &lt;a href=&quot;http://srijanfoss2k16.blogspot.in/2016/02/fossmeetnitc-day1.html&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;http://www.j4v4m4n.in/category/nitc/&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;https://jacksonisaac.wordpress.com/tag/fossmeet-nitc/&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;https://anup07.wordpress.com/2014/07/11/fossmeet14-nit-calicut/&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;https://playingwithsid.blogspot.in/2008/04/fossmeet-nit-calicut-report.html&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;http://pramode.net/2008/04/08/report-on-fossschool-fossmeetnitc-2008/&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;http://sujithh.info/2009/03/fossmeetnitc-2009/&quot;&gt;here&lt;/a&gt; and many more. Though I had registered for FOSSMeet in my first year, I couldn’t take part in any events. Second year was the real deal. I remember John Chetan and Sudev Chetan with the gang came to our classes for induction. I can’t remember how I went to the meeting but I would say that was a turning point. It was full on fun. Me, Prasad, Leny, Reshma Sreekumar, Reshma Thomas, Aleena, Roshin, Vishnu, Francis, Kiran J Kumar (KJK), Kevin Jose (Dassapan) etc were the workforce and our seniors were the managers and our super seniors were the organizers (core committee members).&lt;/p&gt;
 
@@ -25,8 +25,8 @@
 
 </description>
         <pubDate>Thu, 20 Oct 2016 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/articles/2016-10/fossmeet-2016-at-nit-calicut</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2016-10/fossmeet-2016-at-nit-calicut</guid>
+        <link>/articles/2016-10/fossmeet-2016-at-nit-calicut</link>
+        <guid isPermaLink="true">/articles/2016-10/fossmeet-2016-at-nit-calicut</guid>
         
         <category>fossmeet</category>
         
@@ -60,7 +60,7 @@
       </item>
     
       <item>
-        <title>What's new in Ubuntu 16.10 (Yakkety Yak)</title>
+        <title>What&#39;s new in Ubuntu 16.10 (Yakkety Yak)</title>
         <description>&lt;h2 id=&quot;whats-new&quot;&gt;What’s New?&lt;/h2&gt;
 &lt;p&gt;After 6 months of development we can finally download &lt;a href=&quot;https://www.ubuntu.com/download/desktop&quot;&gt;Ubuntu 16.10&lt;/a&gt;, the latest stable release of the world’s most popular desktop Linux distribution. The previous LTS(long Term Support) version, Ubuntu 16.04 (Xenial Xerus), was released back in April 2016. The new version is not a big update compared to the previous one but does come with some cool new features and updates. Ubuntu 16.10 will be supported for 9 months until July 2017. If you need Long Term Support, it is recommended you use Ubuntu 16.04 LTS instead. Find the links to release notes for official flavors &lt;a href=&quot;https://wiki.ubuntu.com/YakketyYak/ReleaseNotes#Official_flavours&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
@@ -131,8 +131,8 @@ Ubuntu 16.10 is based on the Linux release series 4.8. And the new &lt;strong&gt
 
 </description>
         <pubDate>Thu, 13 Oct 2016 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/articles/2016-10/whats-new-in-ubuntu-16-10</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2016-10/whats-new-in-ubuntu-16-10</guid>
+        <link>/articles/2016-10/whats-new-in-ubuntu-16-10</link>
+        <guid isPermaLink="true">/articles/2016-10/whats-new-in-ubuntu-16-10</guid>
         
         <category>ubuntu</category>
         
@@ -182,8 +182,8 @@ The meeting started. Some of us expected, but to the surprise of large multitude
 &lt;p&gt;Now the question is where is justice done? What we wanted was just justice for our brother who lost his life due to negligence of some higher authorities. The issue of the 10 degree leaning of the wall was even raised by the faculty just 3 months ago. Even after that also no action was taken. Is this too much to ask? Some of our seniors who fought and leaded us from the beginning of the event are now the new victims. Our honorable hero has sent a clear message to all of us that nobody can touch him. And he can suppress anyone with his political influence. Anyway who gives a f*** . His message to his people is “SCORE OR DIE SCORING”. But we NITCians have an answer for that and will be given soon.&lt;/p&gt;
 </description>
         <pubDate>Fri, 21 Feb 2014 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/articles/2014-02/rest-in-peace-my-friend</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2014-02/rest-in-peace-my-friend</guid>
+        <link>/articles/2014-02/rest-in-peace-my-friend</link>
+        <guid isPermaLink="true">/articles/2014-02/rest-in-peace-my-friend</guid>
         
         <category>nitc</category>
         
@@ -211,8 +211,8 @@ The meeting started. Some of us expected, but to the surprise of large multitude
 &lt;p&gt;I also have some small dreams that I envision to make come true one day. And I believe that &lt;strong&gt;‘I CAN’&lt;/strong&gt;, one day. As said by legend Mr. Milkha Singh, “a person with strong will power, hardwork, passion, for him sky is the limit..”&lt;/p&gt;
 </description>
         <pubDate>Mon, 19 Aug 2013 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/articles/2013-08/let-it-fly</link>
-        <guid isPermaLink="true">http://localhost:4000/articles/2013-08/let-it-fly</guid>
+        <link>/articles/2013-08/let-it-fly</link>
+        <guid isPermaLink="true">/articles/2013-08/let-it-fly</guid>
         
         <category>dreams</category>
         
