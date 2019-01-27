@@ -9,6 +9,7 @@ description:
   This blog is maintained by K C Sreevasthavan. You can find interesing
   tutorials, free resources(themes, tips, designs), articles, music etc here.
 url: https://vasthav.github.io/
+
 # the base hostname & protocol for your site
 
 #
@@ -40,8 +41,7 @@ owner:
   job: Software Engineer, Traveller, Entreprenuer, Freelancer, Photographer
   bio: "Graduated from National Institute of Technology Calicut, Kerala. <br>Loves travelling, photography, programming, FOSS, web development, <br>music, art, anything new and creative"
   email: sreevasthavan@gmail.com
-  disqus-shortname: vasthav-github-io
-  twitter: me_vasthav
+  disqus-shohttps://vasthav.github.io/  twitter: me_vasthav
   facebook: sree.vasthavan
   google:
     plus: #username
