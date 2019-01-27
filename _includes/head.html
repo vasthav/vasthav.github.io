@@ -18,28 +18,16 @@
   <link rel="stylesheet" href="{{ site.url }}/css/font-awesome.min.css" media="bogus" />
   <!-- <link rel="stylesheet" href="{{ site.url }}/css/main.css"> -->
   <style type="text/css">
-    {
-      % include bootstrap.min.css %
-    }
+    {% include bootstrap.min.css %}
   </style>
   <style type="text/css">
-    {
-      % capture include_to_sassify %
-    }
+    {% capture include_to_sassify %}
 
-      {
-      % include main.scss %
-    }
+    {% include main.scss %}
 
-      {
-      % endcapture %
-    }
+    {% endcapture %}
 
-      {
-        {
-        include_to_sassify | scssify
-      }
-    }
+    {{ include_to_sassify | scssify }}
   </style>
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}" />
@@ -48,6 +36,15 @@
   <!-- loadCSS font loading -->
 
   <script>
+    function gen_mail_to_link(hs, subject) {
+      var lhs, rhs;
+      var p = hs.split('@');
+      lhs = p[0];
+      rhs = p[1];
+      document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+      document.write(":" + lhs + "@");
+      document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-2x fa-fw fa-envelope\"></i><\/a>");
+    }
     function loadCSS(href, before, media, callback) {
       "use strict";
       var ss = window.document.createElement("link");
