@@ -7,9 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©2019 Vasthav.</copyright>
+    <lastBuildDate>Thu, 20 Oct 2016 12:52:49 +0530</lastBuildDate>
     
         <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fossmeet 2016</title>
+      <link>/tags/fossmeet-2016/</link>
+      <pubDate>Thu, 20 Oct 2016 12:52:49 +0530</pubDate>
+      
+      <guid>/tags/fossmeet-2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NIT Calicut</title>
+      <link>/tags/nit-calicut/</link>
+      <pubDate>Thu, 20 Oct 2016 12:52:49 +0530</pubDate>
+      
+      <guid>/tags/nit-calicut/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

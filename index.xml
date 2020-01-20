@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>©2019 Vasthav.</copyright>
-    <lastBuildDate>Mon, 13 Jan 2020 12:52:49 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 20 Oct 2016 12:52:49 +0530</lastBuildDate>
     
         <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,10 +15,21 @@
     <item>
       <title>Posts</title>
       <link>/posts/</link>
-      <pubDate>Mon, 13 Jan 2020 12:52:49 +0530</pubDate>
+      <pubDate>Thu, 20 Oct 2016 12:52:49 +0530</pubDate>
       
       <guid>/posts/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hello I am Vasthav.
+Data scientist, ML enthusisast, entreprenuer.
+I loves anything new and creative.</description>
     </item>
     
   </channel>
