@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.62.2" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+
+    
+    <meta name="google-site-verification" content="pC_uenrHqqWm7nMx7NaySPizLnO0R15AbZmrifdv7rM" />
+
+    
+    <script data-ad-client="ca-pub-8668142275730911" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><title>Udacity Data Science Nano Degree - Starbuck&#39;s Capstone Challenge&nbsp;&ndash;&nbsp;Vasthav&#39;s Blog</title><link rel="stylesheet" href="/css/core.min.a19cc6785b28b911e3b379413913a197046efc17dccbdd56319471763fe29e408fcfe47112584eee236f7fbcedfac9e3.css" integrity="sha384-oZzGeFsouRHjs3lBOROhlwRu/Bfcy91WMZRxdj/inkCPz&#43;RxElhO7iNvf7zt&#43;snj"><link rel="stylesheet" href="https://vasthav.com/css/style.css">
+
+    
+    
+    <link href="https://fonts.googleapis.com/css2?family=Literata:ital@0;1&family=Nunito:wght@600&display=swap" rel="stylesheet">
+</head><body>
+    <div class="base-body"><section id="header" class="site header max-body-width">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">Vasthav's Blog</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="/about">About</a><a class="nav item" href="https://github.com/vasthav"target="_blank">Github</a></nav></div></span></div></section><div id="content" class="max-body-width"><section class="article header">
+    <h1 class="article title">Udacity Data Science Nano Degree - Starbuck's Capstone Challenge</h1><p class="article date">Monday, July 27, 2020<span class="reading-time"> • 5 minutes to read</span></p></section><article class="article markdown-body"style="text-align: justify;"><h1 id="introduction">Introduction</h1>
+<p>As part of the <a href="https://www.udacity.com/course/data-scientist-nanodegree--nd025"target="_blank">Udacity - Data Science Nano Degree program</a> I recently completed a task where I had to use a given data set, analyse it and come up with heuristics based recommendations. This blog post will present the final conclusions and recommendations I came up with after the analysis.</p>
+<p><a target="_blank" rel="noopener noreferrer" 
+  href="/images/starbucks-quan-le-A_NBmfVh6ao-unsplash.jpg"><img  src="/images/starbucks-quan-le-A_NBmfVh6ao-unsplash.jpg"
+        alt="Starbucks coffee - Photo by quan le on unsplash"/></a>
+<span>Photo by <a href="https://unsplash.com/@quanle2819?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">quan le</a> on <a href="https://unsplash.com/s/photos/starbucks?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></p>
+<h3 id="a-note-on-the-dataset">A Note on the Dataset</h3>
+<p>The Starbucks Udacity Data Scientist Nanodegree Capstone challenge data set is a simulation of customer behavior on the Starbucks rewards mobile application. Each person in the simulation has some hidden traits that influence their purchasing patterns and are associated with their observable traits.</p>
+<p>There are three types of offers that can be sent:</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- buy-one-get-one (BOGO), 
+- discount, and 
+- informational. 
+</code></pre></div><p>In a BOGO offer, a user needs to spend a certain amount to get a reward equal to that threshold amount. In a discount, a user gains a reward equal to a fraction of the amount spent. In an informational offer, there is no reward, but neither is there a requisite amount that the user is expected to spend. Offers can be delivered via multiple channels. An important characteristic regarding this dataset is that not all users receive the same offer.</p>
+<p>The basic task is to use the data to identify which groups of people are most responsive to each type of offer, and how best to present each type of offer.</p>
+<h4 id="data-dictionary">Data Dictionary</h4>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- profile.json - Rewards program users (17000 users x 5 fields)
+    - gender: (categorical) M, F, O, or null
+    - age: (numeric) missing value encoded as 118
+    - id: (string/hash)
+    - became_member_on: (date) format YYYYMMDD
+    - income: (numeric)
+
+- portfolio.json - Offers sent during 30-day test period (10 offers x 6 fields)
+    - reward: (numeric) money awarded for the amount spent
+    - channels: (list) web, email, mobile, social
+    - difficulty: (numeric) money required to be spent to receive reward
+    - duration: (numeric) time for offer to be open, in days
+    - offer_type: (string) bogo, discount, informational
+    - id: (string/hash)
+
+- transcript.json - Event log (306648 events x 4 fields)
+    - person: (string/hash)
+    - event: (string) offer received, offer viewed, transaction, offer completed
+    - value: (dictionary) different values depending on event type
+    - offer id: (string/hash) not associated with any &#34;transaction&#34;
+    - amount: (numeric) money spent in &#34;transaction&#34;
+    - reward: (numeric) money gained from &#34;offer completed&#34;
+    - time: (numeric) hours after start of test
+</code></pre></div><h1 id="motivation">Motivation</h1>
+<p>The problem that I chose to solve was to build a set of heuristics to help decide what offers works best for certain age and gender demographics. I chose a simple approach where the users who converted (completed offer) were analysed based on gender, age, and income bracket.</p>
+<p>At the end we create two user list, one of top user's user id list and the second user id list of potential customers based on transaction behavior, which can be used in re-marketing different products. And given the marketing cost these lists are helpful to target other products to true fans (First list) and use more offers to capture more revenue from the potential users (second list).</p>
+<h1 id="analysis">Analysis</h1>
+<p>The analysis process involved following the CRISP-DM methodology. After the cleaning of the data set exploratory data analysis was done on three data set files. Transcript file was a combination of Transaction event, offer received, offer viewed, offer completed data. I needed to separate this into 4 different data frames before proceeding for the sake of simplicity.</p>
+<p>The transaction event data separated from transcript file gave us age, gender, and income wise transaction events and revenue data. This was helpful to come up with the user lists to find the true fans and potential users for re-marketing.</p>
+<p>Joining offer received, viewed and completed data helped us figure the impact of each offer. And recommend the top three offers. We also found 2 offers which were not resulting in any conversion.</p>
+<p>See the different observations after the analysis mention in the next section.</p>
+<h1 id="observations">Observations</h1>
+<p>Based on the analysis we observed that</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- Average user transactions count is 8.38
+- Average user age 62 years
+- Average user income 57000 unit.
+</code></pre></div><p>Top three two age brackets and gender groups that result in highest number of transactions and in turn revenue are:</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- 60+ Male, 60+ Female
+- 50-59 Male, 50-59 Female
+- 40-49 Male, 40-49 Female
+</code></pre></div><p>There is not much difference in income gap between the users who transact based on their age, and gender groups.</p>
+<p>Highest offer completion rate is for the offer:</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">fafdcd668e3743c1bb461111dcafc2a4 (~82% conversion rate).
+</code></pre></div><p>We should send this offer more.
+Top Three offers -</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">1. fafdcd668e3743c1bb461111dcafc2a4
+2. 2298d6c36e964ae4a3e7e9706d1fb8c2
+3. f19421c1d4aa40978ebb69ca19b0e20d 
+</code></pre></div><p>We should send these more in general.</p>
+<p>The below mentioned offers didn't result in any conversion. We should stop sending these particular offer.</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- 5a8bc65990b245e5a138643cd4eb9837
+- 3f207df678b143eea3cee63160fa8bed
+</code></pre></div><p>We were able to find the demographics which has the highest impact on the offer individually too. See the observations in the iPython Notebook available in the <a href="https://github.com/vasthav/Udacity-DSND-Capstone_project-Starbucks"target="_blank">github repository</a>.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>After analysing the Starbucks Udacity Data Scientist Nano-degree Capstone challenge data set, which is a simulation of customer behavior on the Starbucks rewards mobile application, we were able to find the top three offers which resulted in highest conversions. We also found couple of offers which didn't result in any conversions. Based on the heuristics recommendations were made to send more of the top performing offers and stop sending the offers which didn't perform well. Offerwise recommendations were also made (see iPython notebook for more info).</p>
+<p>We have also created top converting user list (total Ids 3941).</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- These users are like 1000 true fans. 
+- They enjoy the product &amp; we need not send offers to them.
+</code></pre></div><p>We have also created least converting user list (total Ids 4037).</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- These users have converted but has potential to convert more. 
+- These user ids can be used for re-marketing by offering better offers so that they convert more.
+</code></pre></div><p><em>Next steps include building a simple machine learning model to predict the users who has high chance of conversion (completing the offers) based on offer viewed and completed data.</em></p>
+<h6 id="complete-data-analysis-is-available-in-the-github-repositoryhttpsgithubcomvasthavudacity-dsnd-capstone_project-starbucks"><strong>Complete Data analysis is available in the <a href="https://github.com/vasthav/Udacity-DSND-Capstone_project-Starbucks"target="_blank">github repository</a>.</strong></h6>
+</article><section class="article labels"><a class="article category" href=/categories/article/><span class="hashtag">#</span>Article</a><a class="article tag" href=/tags/data-analysis/><span class="hashtag">#</span>Data Analysis</a></section><section class="article license">MIT</section><section class="article navigation"><p><a class="link" href="/posts/why-we-need-a-mental-shift-to-overcome-covid-induced-anxiety/"><span class="li"></span>Why We Need a Mental Shift to Overcome Covid Induced Anxiety</a class="link">
+    </p></section><section class="article discussion"><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vasthav" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></section></div><section id="footer" class="footer max-body-width"><div class="footer-wrap">
+    <p class="copyright">©2019 Vasthav.</p>
+    <p><a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-service">Terms of Service</a></p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-84213835-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</body>
+
+</html>
