@@ -17,14 +17,14 @@
     <div class="base-body"><section id="header" class="site header max-body-width">
     <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">Vasthav's Blog</span></a></span>
         <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="/about">About</a><a class="nav item" href="https://github.com/vasthav"target="_blank">Github</a></nav></div></span></div></section><div id="content" class="max-body-width"><section class="article header">
-    <h1 class="article title">Udacity Data Science Nano Degree - Starbuck's Capstone Challenge</h1><p class="article date">Monday, July 27, 2020<span class="reading-time"> • 5 minutes to read</span></p></section><article class="article markdown-body"style="text-align: justify;"><h1 id="introduction">Introduction</h1>
+    <h1 class="article title">Udacity Data Science Nano Degree - Starbuck's Capstone Challenge</h1><p class="article date">Monday, July 27, 2020<span class="reading-time"> • 8 minutes to read</span></p></section><article class="article markdown-body"style="text-align: justify;"><h1 id="introduction">Introduction</h1>
 <p>As part of the <a href="https://www.udacity.com/course/data-scientist-nanodegree--nd025"target="_blank">Udacity - Data Science Nano Degree program</a> I recently completed a task where I had to use a given data set, analyse it and come up with heuristics based recommendations. This blog post will present the final conclusions and recommendations I came up with after the analysis.</p>
 <p><a target="_blank" rel="noopener noreferrer" 
   href="/images/starbucks-quan-le-A_NBmfVh6ao-unsplash.jpg"><img  src="/images/starbucks-quan-le-A_NBmfVh6ao-unsplash.jpg"
         alt="Starbucks coffee - Photo by quan le on unsplash"/></a>
 <span>Photo by <a href="https://unsplash.com/@quanle2819?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">quan le</a> on <a href="https://unsplash.com/s/photos/starbucks?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></p>
-<h3 id="a-note-on-the-dataset">A Note on the Dataset</h3>
-<p>The Starbucks Udacity Data Scientist Nano-degree Capstone challenge to simulate how different promotional offers impact user interaction and decisions. There are three types of offers as per the data set: buy-one-get-one (BOGO), discount, and informational - all of which are delivered over multiple channels. The main task is to identify different segments of users based on their identifiable feature (like age, income, transaction patterns etc) to offer better targeted promotional offers. Also finding other patterns and trends like the impact of each offers on the different segments of users etc.</p>
+<h2 id="a-note-on-the-dataset">A Note on the Dataset</h2>
+<p>The Starbucks Udacity Data Scientist Nano-degree Capstone challenge data set simulate how different promotional offers impact user interaction and decisions on Starbucks mobile rewards app. There are three types of offers as per the data set: buy-one-get-one (BOGO), discount, and informational - all of which are delivered over multiple channels. The main task is to identify different segments of users based on their identifiable feature (like age, income, transaction patterns etc) to offer better targeted promotional offers. Also finding other patterns and trends like the impact of each offers on the different segments of users etc.</p>
 <p>The basic task is to use the data to identify which groups of people are most responsive to each type of offer, and how best to present each type of offer.</p>
 <p>The data spread across three different files. See related more info below:</p>
 <h4 id="data-dictionary">Data Dictionary</h4>
@@ -53,44 +53,149 @@
     - time: (numeric) hours after start of test
 </code></pre></div><h1 id="motivation">Motivation</h1>
 <p>The problem that I chose to solve was to build a set of heuristics to help decide what offers works best for certain age and gender demographics. I chose a simple approach where the users who converted (completed offer) were analysed based on gender, age, and income bracket.</p>
-<p>At the end we create two user list, one of top user's user id list and the second user id list of potential customers based on transaction behavior, which can be used in re-marketing different products. And given the marketing cost these lists are helpful to target other products to true fans (First list) and use more offers to capture more revenue from the potential users (second list).</p>
+<p>At the end I intended to create two user list, one of top user's user id list and the second user id list of potential customers based on transaction behavior, which can be used in re-marketing different products. And given the marketing cost these lists are helpful to target other products to true fans (First list) and use more offers to capture more revenue from the potential users (second list).</p>
 <h1 id="analysis">Analysis</h1>
 <p>The analysis process involved following the CRISP-DM methodology. After the cleaning of the data set exploratory data analysis was done on three data set files. Transcript file was a combination of Transaction event, offer received, offer viewed, offer completed data. I needed to separate this into 4 different data frames before proceeding for the sake of simplicity.</p>
-<p>The transaction event data separated from transcript file gave us age, gender, and income wise transaction events and revenue data. This was helpful to come up with the user lists to find the true fans and potential users for re-marketing.</p>
-<p>Joining offer received, viewed and completed data helped us figure the impact of each offer. And recommend the top three offers. We also found 2 offers which were not resulting in any conversion.</p>
-<p>See the different observations after the analysis mention in the next section.</p>
+<p>Merging offer received, viewed and completed data in the proper format helped us figure the impact of each offer. And recommend the top three offers. We also found 2 offers which were not resulting in any conversion.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Consolidating/mergin offer received, viewed and completed data.</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">offer_received_data</span><span class="p">,</span> <span class="n">offer_viewed_data</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_id</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">person</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">left</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">offer_completed_data</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_id</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">person</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">left</span><span class="s1">&#39;</span><span class="p">)</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_id</span><span class="s1">&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">person</span><span class="s1">&#39;</span><span class="p">,</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">event_x</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">event_y</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">event</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">time_x</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">time_y</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">time</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="sa"></span><span class="s1">&#39;</span><span class="s1">event_x</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_received</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="sa"></span><span class="s1">&#39;</span><span class="s1">event_y</span><span class="s1">&#39;</span><span class="p">:</span>  <span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_viewed</span><span class="s1">&#39;</span><span class="p">,</span> 
+    <span class="sa"></span><span class="s1">&#39;</span><span class="s1">event</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_completed</span><span class="s1">&#39;</span><span class="p">,</span> 
+    <span class="sa"></span><span class="s1">&#39;</span><span class="s1">time_x</span><span class="s1">&#39;</span><span class="p">:</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">time_received</span><span class="s1">&#39;</span><span class="p">,</span> 
+    <span class="sa"></span><span class="s1">&#39;</span><span class="s1">time_y</span><span class="s1">&#39;</span><span class="p">:</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">time_viewed</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="sa"></span><span class="s1">&#39;</span><span class="s1">time</span><span class="s1">&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">time_completed</span><span class="s1">&#39;</span><span class="p">}</span><span class="p">)</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_received</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_viewed</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_completed</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+    <span class="n">b</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">else</span> <span class="mi">1</span><span class="p">)</span>
+    
+<span class="c1"># There can be cases where the user might not have viewed the offer but still completes it. </span>
+<span class="c1"># To avoid this we are going to remove all such conversions from user summary.</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">b</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_viewed</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> 
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">time_received</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">time_viewed</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">time_completed</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+    <span class="n">b</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">infty</span><span class="p">)</span> 
+
+<span class="n">offers_user_summary</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">offers_user_summary</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_id</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_completed</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div><p><a target="_blank" rel="noopener noreferrer" 
+  href="/images/capstone-dsnd/topofferspercentage.png"><img  src="/images/capstone-dsnd/topofferspercentage.png"
+        alt="Top offer percentage table data."/></a></p>
+<p>After finding the top offers I tried to figure out what makes these offers different from the rest.
+First, I tried to see age wise distributions of all offers.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Lets find out what makes our top offer (fafdcd668e3743c1bb461111dcafc2a4) different from others.</span>
+<span class="c1"># Lets look at age wise distribution of transactions. </span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_completed</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">age_bracket</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_id</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="p">)</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">person</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="n">t</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">barh</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Offerwise age freqency graph</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div><p><a target="_blank" rel="noopener noreferrer" 
+  href="/images/capstone-dsnd/agewiseoffersdiff.png"><img  src="/images/capstone-dsnd/agewiseoffersdiff.png"
+        alt="age wise distribution of transactions"/></a></p>
+<p>Second, I tried to figure out if the users interaction and preference has anything to do with how long they have been using the app.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Lets look at joining year wise distribution of transactions. </span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_completed</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">joining_year</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">offer_id</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="p">)</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">person</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="n">t</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">barh</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Offerwise joining year freqency graph</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div><p><a target="_blank" rel="noopener noreferrer" 
+  href="/images/capstone-dsnd/yearwiseoffersdiff.png"><img  src="/images/capstone-dsnd/yearwiseoffersdiff.png"
+        alt="joining year wise distribution of transactions."/></a></p>
+<p>The transaction event data separated from transcript file gave us age, gender, and income wise transaction events and revenue data. This was helpful to come up with the user lists to find the true fans and potential users for re-marketing. Based on this I also tried to probe age and income wise trends. See how the bar graph below peaks at age close to 60.</p>
+<p><a target="_blank" rel="noopener noreferrer" 
+  href="/images/capstone-dsnd/agewisecounts.png"><img  src="/images/capstone-dsnd/agewisecounts.png"
+        alt="age-wise user conversion bar graph"/></a></p>
+<p>I then tried to find the revenue trends based different age brackets. See how the bar graph below peaks at age close to 50-59 and 60+ age groups.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Plotting bar graph for - Total revenue generated by each gender and age group</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Total revenue generated by each gender and age group</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Age_bracket &amp; gender</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Total revenue</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">age_split_user_summary</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">age_bracket</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">gender</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="p">)</span>
+<span class="n">g</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">revenue</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">bar</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div><p><a target="_blank" rel="noopener noreferrer" 
+  href="/images/capstone-dsnd/revenuebyage.png"><img  src="/images/capstone-dsnd/revenuebyage.png"
+        alt="Total revenue generated by each gender and age group - bar graph"/></a></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Plotting bar graph for - Total transactions generated by each gender and age group</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Total transactions generated by each gender and age group</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Age_bracket &amp; gender</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">Total transaction counts</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">age_split_user_summary</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">age_bracket</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">gender</span><span class="s1">&#39;</span><span class="p">]</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="p">)</span>
+<span class="n">g</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">counts</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">bar</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div><p><a target="_blank" rel="noopener noreferrer" 
+  href="/images/capstone-dsnd/countsbyage.png"><img  src="/images/capstone-dsnd/countsbyage.png"
+        alt="Total transactions generated by each gender and age group"/></a></p>
+<p>Based on all the analysis I mentioned above different trends, learnings and observations were noted. Let's dive into these now.</p>
 <h1 id="observations">Observations</h1>
-<p>Based on the analysis we observed that</p>
+<p>Based on my analysis I observed that</p>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- Average user transactions count is 8.38
 - Average user age 62 years
-- Average user income 57000 unit.
+- Average user income 57000.
 </code></pre></div><p>Top three two age brackets and gender groups that result in highest number of transactions and in turn revenue are:</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">1. 60+ Male, 60+ Female
-2. 50-59 Male, 50-59 Female
-3. 40-49 Male, 40-49 Female
-</code></pre></div><p>There is not much difference in income gap between the users who transact based on their age, and gender groups.</p>
-<p>Highest offer completion rate is for the offer:</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">fafdcd668e3743c1bb461111dcafc2a4 (~82% conversion rate).
-</code></pre></div><p>We should send this offer more.
-Top Three offers -</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">1. fafdcd668e3743c1bb461111dcafc2a4
-2. 2298d6c36e964ae4a3e7e9706d1fb8c2
-3. f19421c1d4aa40978ebb69ca19b0e20d 
-</code></pre></div><p>We should send these more in general.</p>
-<p>The below mentioned offers didn't result in any conversion. We should stop sending these particular offer.</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- 5a8bc65990b245e5a138643cd4eb9837
-- 3f207df678b143eea3cee63160fa8bed
-</code></pre></div><p>We were able to find the demographics which has the highest impact on the offer individually too. See the observations in the iPython Notebook available in the <a href="https://github.com/vasthav/Udacity-DSND-Capstone_project-Starbucks"target="_blank">github repository</a>.</p>
-<h1 id="conclusion">Conclusion</h1>
-<p>After analysing the Starbucks Udacity Data Scientist Nano-degree Capstone challenge data set, which is a simulation of customer behavior on the Starbucks rewards mobile application, I was able to find the top three offers which resulted in highest conversions. I also found couple of offers which didn't result in any conversions. Based on the heuristics recommendations were made to send more of the top performing offers and stop sending the offers which didn't perform well. Offerwise recommendations were also made (see iPython notebook for more info).</p>
-<p>I have also created top converting user list (total Ids 3941).</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- 60+ Male, 60+ Female
+- 50-59 Male, 50-59 Female
+- 40-49 Male, 40-49 Female
+- There is not much difference in income gap between the users who transact based on their age, and gender groups.
+    
+- 3 out of 5 top offers 
+    - were discount offers. And they had high difficulty but low reward.
+    - were sent on all 4 channels. 
+- 2 out of 5 top offers were bogo offers with medium difficulty and medium reward. 
+</code></pre></div><ul>
+<li>Highest offer completion rate (conversion rate) is for the offer: <strong><em>fafdcd668e3743c1bb461111dcafc2a4</em></strong> (~82%).
+<ul>
+<li>We should send this offer more.</li>
+</ul>
+</li>
+<li>We also observed that the top 2 offers are performing really well for 50+ age demographics.
+<ul>
+<li>And the top offer performs better than the second best because of slightly better conversion rate in the 50-59 category.</li>
+</ul>
+</li>
+<li>Maximum offers were completed by the users who joined in 2017 and followed by 2016.</li>
+<li>Users who joined in 2018 were completing lesser number of offers compared to those who joined in 2016 and 2017.</li>
+</ul>
+<h2 id="metric-for-selecting-top-offer">Metric for selecting top offer</h2>
+<p>For selecting the top offers the metrics I chose - the highest completion rate (conversion rate) which is nothing but the percentage of users who completed the offer after viewing them. Reason behind this was simple - as intuitively, we know that the more the conversions the more the revenue increases.</p>
+<p>Based on above metrics:
+Top Three offers were -</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- fafdcd668e3743c1bb461111dcafc2a4
+- 2298d6c36e964ae4a3e7e9706d1fb8c2
+- 9b98b8c7a33c4b65b9aebfe6a799e6d9
+</code></pre></div><p>The below mentioned offers didn't result in any conversion. We should stop sending these particular offers.</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">1. 3f207df678b143eea3cee63160fa8bed
+2. 5a8bc65990b245e5a138643cd4eb9837
+</code></pre></div><h1 id="recommendations">Recommendations</h1>
+<p>Send the top three offers more, especially for</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- users who joined in 2016-2017
+- users in the age group 50+
+</code></pre></div><p>Send offers in all 4 channels for better conversions.</p>
+<p>Test and optimise the below mentioned two categories (based on offer type) for better conversions</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- different discount offers with high difficulty and low reward.
+- different bogo offers with medium difficulty and medium rewards
+</code></pre></div><p>stop sending below mentioned offers.</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">1. 3f207df678b143eea3cee63160fa8bed
+2. 5a8bc65990b245e5a138643cd4eb9837
+</code></pre></div><h1 id="conclusion">Conclusion</h1>
+<p>I set out to to analyse Starbucks Udacity Data Scientist Nano-degree Capstone challenge data set, which is a simulation of customer behavior on the Starbucks rewards mobile application. The problem that I chose to solve was to build a set of heuristics to help decide what offers works best for certain age and gender demographics and also come up with any recommendations based on different trends and learnings from the dataset.</p>
+<p>I was able to find the top three offers based on the metric I chose (which was highest offer conversion rate). I also found couple of offers which didn't result in any conversions. Based on the heuristics recommendations were made to send more of the top performing offers and stop sending the offers which didn't perform well. Other offer wise recommendations were also made.</p>
+<p>I have also created top converting user list (total Ids 3941). This list was based on the user who were in the 75th percentile of the conversion counts of all the users.</p>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- These users are like 1000 true fans. 
 - They enjoy the product &amp; we need not send offers to them.
-</code></pre></div><p>I have also created least converting user list (total Ids 4037).</p>
+</code></pre></div><p>I have also created least converting user list (total Ids 4037). This list was based on the users who were in the 25% percentile of the conversion counts of all the users.</p>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">- These users have converted but has potential to convert more. 
 - These user ids can be used for re-marketing by offering better offers so that they convert more.
-</code></pre></div><p><em>Next steps include building a simple machine learning model to predict the users who has high chance of conversion (completing the offers) based on offer viewed and completed data.</em></p>
-<h6 id="complete-data-analysis-is-available-in-the-github-repositoryhttpsgithubcomvasthavudacity-dsnd-capstone_project-starbucks"><strong>Complete Data analysis is available in the <a href="https://github.com/vasthav/Udacity-DSND-Capstone_project-Starbucks"target="_blank">github repository</a>.</strong></h6>
+</code></pre></div><h1 id="next-steps">Next steps</h1>
+<p>Next step is to build a simple machine learning model to predict the users who has high chance of conversion (completing the offers) based on offer viewed and completed data.</p>
+<p>The complete analysis as Jupyter notebook is available in my github repository -</p>
+<p><strong><a href="https://github.com/vasthav/Udacity-DSND-Capstone_project-Starbucks"target="_blank">@vasthav/Udacity-DSND-Capstone_project-Starbucks</a></strong></p>
 </article><section class="article labels"><a class="article category" href=/categories/article/><span class="hashtag">#</span>Article</a><a class="article tag" href=/tags/data-analysis/><span class="hashtag">#</span>Data Analysis</a><a class="article tag" href=/tags/udacity-data-science-nano-degree/><span class="hashtag">#</span>Udacity Data Science Nano Degree</a></section><section class="article navigation"><p><a class="link" href="/posts/why-we-need-a-mental-shift-to-overcome-covid-induced-anxiety/"><span class="li"></span>Why We Need a Mental Shift to Overcome Covid Induced Anxiety</a class="link">
     </p></section><section class="article discussion"><div id="disqus_thread"></div>
 <script type="application/javascript">
